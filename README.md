@@ -60,6 +60,7 @@ This project implements a Naive Bayes classifier on an Insurance Claims dataset 
 
 # ------------------------------------------------------------------------------
 
+
 # Insights from the Dataset
 
 - After importing the dataset, our first step is to check if the data is imported properly, we can use `Claims.shape` to check the number of observations (rows) and features (columns) in the dataset
@@ -151,46 +152,69 @@ corr = Claims_3.corrwith(Claims_3['fraudulent']).abs().sort_values(ascending = F
 - ![image](https://github.com/Ras-codes/Insurance-Claims-Naive-Bayes/assets/164164852/7f801645-0d11-4021-a4b0-f1fcc2ff2217)
 
 
+# ------------------------------------------------------------------------------
+
+
+# Split train-test data
+
+Splitting train-test data refers to the process of dividing a dataset into two separate subsets: one for training a machine learning model and another for evaluating its performance.
+
+### Defining Features and Target Variable:
+
+````
+x = Claims_3.drop(['fraudulent'], axis = 1)
+y = Claims_3['fraudulent']
+````
+- Define x to contain all features except the target variable ('fraudulent').
+- Define y to contain only the target variable ('fraudulent').
+
+### Splitting Data:
+
+````
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, random_state = 0)
+````
+- x_train and y_train for training the model.
+- x_test and y_test for evaluating the model's performance.
+
+#### Using 20% of the data for testing, leaving 80% for training.
+
+
+# ------------------------------------------------------------------------------
+
+
+# Naive Bayes Model:
 
 
 
+- Model Selection: Uses Gaussian Naive Bayes (GNB), suitable for features with a Gaussian distribution assumption.
+- Model Training: `gnb.fit(x_train, y_train)` trains the model using features `(x_train)` and corresponding target labels `(y_train)`.
+- Prediction: `gnb.predict(x_train)` generates predictions for the training data.
+- Confusion Matrix: `pd.crosstab(Model_data_train.fraudulent, Model_data_train.y_pred, margins=True)` creates a confusion matrix to evaluate model performance.
+- ![image](https://github.com/Ras-codes/Insurance-Claims-Naive-Bayes/assets/164164852/3b525f62-d513-4d53-93c5-5ddfdc5d25d1)
+- Metrics Calculation: Computes True Positives (TP), True Negatives (TN), False Positives (FP), and False Negatives (FN) from the confusion matrix.
+- Visualization: Heatmap visualizes the confusion matrix.
+- ![image](https://github.com/Ras-codes/Insurance-Claims-Naive-Bayes/assets/164164852/b75aebe3-f7f0-4c14-9ef8-391c792db1d3)
+- Classification Report: Provides precision, recall, F1-score, and support metrics.
+- Accuracy Score: Computes the overall accuracy of the model on the training data.
+
+#### Model accuracy score: 0.7716
 
 
+# ------------------------------------------------------------------------------
 
 
+# Evaluating the model
 
 
+- Prediction on Test Data: `gnb.predict(x_test)` predicts the target variable (fraudulent in this case) using the trained Gaussian Naive Bayes model (gnb) on the test data (x_test).
+- Comparison DataFrame: Model_data_test is created to compare actual (y_test) vs. predicted (y_test_pred) values.
+- Classification Report: `classification_report(y_test, y_test_pred)` generates a report including precision, recall, F1-score, and support metrics for the test data.
+- Accuracy Score: `accuracy_score(y_test, y_test_pred)` computes the overall accuracy of the model on the test data.
 
+#### It is not an overfitting model. We have divided the training and testing dataset in 80-20 ratio and we got almost similar training and testing accuracy.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Conclusion : 
+In this project, we set out to improve the accuracy of our model, initially achieving a 73% accuracy rate. By doing some Outlier Treatment and Correlation Analysis the model's accuracy rate has increased but importantly by reintroducing the claim_amount variable into our analysis, we observed a notable increase in accuracy, reaching 77%. This suggests that in this dataset, claim_amount variable plays a significant role in predicting the outcomes of our model.
 
 
 
