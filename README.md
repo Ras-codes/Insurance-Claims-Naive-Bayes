@@ -69,9 +69,6 @@ This project implements a Naive Bayes classifier on an Insurance Claims dataset 
 - ![image](https://github.com/Ras-codes/Insurance-Claims-Naive-Bayes/assets/164164852/2f9d793c-b957-41d8-8e4f-e5ec984f3368)
 - To understand more about the data, including the number of non-null records in each columns, their data types, the memory usage of the dataset, we use `Claims.info()`
 - ![image](https://github.com/Ras-codes/Insurance-Claims-Naive-Bayes/assets/164164852/a8aa8a67-f72f-4232-8fe8-75e24df2558e)
-- Checking cardinality / uniqueness of data with `Claims.nunique()`
-- Count of distinct values in each column
-- ![image](https://github.com/Ras-codes/Medical-Devices-EDA/assets/164164852/78dbf626-bf40-4bf1-a7e0-d380280bf67a)
 
 
 # ------------------------------------------------------------------------------
