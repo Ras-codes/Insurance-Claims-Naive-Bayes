@@ -211,36 +211,9 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size = 0.2, rando
 - Classification Report: `classification_report(y_test, y_test_pred)` generates a report including precision, recall, F1-score, and support metrics for the test data.
 - Accuracy Score: `accuracy_score(y_test, y_test_pred)` computes the overall accuracy of the model on the test data.
 
+## Model accuracy score: 0.7773
+
 #### It is not an overfitting model. We have divided the training and testing dataset in 80-20 ratio and we got almost similar training and testing accuracy.
 
 ### Conclusion : 
 In this project, we set out to improve the accuracy of our model, initially achieving a 73% accuracy rate. By doing some Outlier Treatment and Correlation Analysis the model's accuracy rate has increased but importantly by reintroducing the claim_amount variable into our analysis, we observed a notable increase in accuracy, reaching 77%. This suggests that in this dataset, claim_amount variable plays a significant role in predicting the outcomes of our model.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
