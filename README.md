@@ -108,7 +108,7 @@ One-hot encoding is a technique used to convert categorical variables into a bin
 
 Next step is to check for missing values in the dataset. It is very common for a dataset to have missing values.
 
-- `data.isna().sum()` isna() is used for detecting missing values in the dataframe, paired with sum() will return the number of missing values in each column.
+- `Claims.isna().sum()` isna() is used for detecting missing values in the dataframe, paired with sum() will return the number of missing values in each column.
 - ![image](https://github.com/Ras-codes/Insurance-Claims-Naive-Bayes/assets/164164852/22c51cc9-0e33-4e21-8bcf-0c042a2ce745)
 ````
 Claims_1['claim_amount'] = Claims_1['claim_amount'].fillna(Claims_1['claim_amount'].median())
